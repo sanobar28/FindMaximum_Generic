@@ -24,31 +24,19 @@ import java.util.Arrays;
 public class FindMax<E extends Comparable<E>> {
     E[] values;
     
-    static //List of Generic Values
-    List<E> items = new LinkedList<>();
-   
 
     //Constructor to Initialize Generic Array
-    public  FindMax(E[] values) {
+    @SafeVarargs
+	public FindMax(E... values) {
         this.values = values;
     }
 
     public static <E> void printMax(E max) {
         System.out.println("Max Value = " + max);
     }
-    
-    public FindMax(List<E> items) {
-    	this.items = items;   
-    }
-    
-    //Method to Find  Max Value From List
-    public static Integer findMax() {
-        return Collections.max(items);
-    }
-    
-    
+   
     public static void main(String[] args) {
-    	
+    
         Integer[] integerValues = {50, 20, 300};
         String[] stringValues = {"All", "Good", "Morning"};
         Double [] floatValues = {45.17, 577.4, 27.28};
@@ -57,19 +45,31 @@ public class FindMax<E extends Comparable<E>> {
         new FindMax<Integer>(integerValues).findMaxValue();
         new FindMax<Double>(floatValues).findMaxValue();
         
-        findMax();
     }
+    
+    /**
+     * using sort for sorting generic array
+     * @return
+     */
 
     public E findMaxValue() {
-        if (values[0].compareTo(values[1]) > 0 && values[0].compareTo(values[2]) > 0) {
-            printMax(values[0]);
-            return values[0];
-        } else if (values[1].compareTo(values[0]) > 0 && values[1].compareTo(values[2]) > 0) {
-            printMax(values[1]);
-            return values[1];
+    	if (values.length == 0) {
+            System.out.println("No values");
         } else {
-            printMax(values[2]);
-            return values[2];
+            Arrays.sort(values);
+            printMax(values[values.length - 1]);
+            return values[values.length - 1];
         }
+    }
+    
+    /*
+     *Method to print Max Value
+     * @param is Generic Value
+     */
+    public void printMax(E value) {
+        System.out.println("Max Value = " + value);
+    }
+    
+    
     }
 }
