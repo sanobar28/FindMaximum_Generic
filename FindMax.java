@@ -10,11 +10,7 @@
 
 package javaGenerics;
 
-/**
- * UC-1 to find max method returns maximum value using Integer object and 
- * compareTo method 
- *
- */
+
 public class FindMax {
 
 	public Integer findMaxValue(Integer firstNumber, Integer secondNumber, Integer thirdNumber) {
@@ -29,7 +25,28 @@ public class FindMax {
 		return max;
 	}
 
+	/**
+	 * UC-2 to find max method returns maximum value using Float object and
+	 * compareTo method
+	 *
+	 */
+	public Float findMaxValue(Float firstNumber, Float secondNumber, Float thirdNumber) {
+		Float max = firstNumber;
+		if (secondNumber.compareTo(max) > 0) {
+			max = secondNumber;
+		}
+		if (thirdNumber.compareTo(max) > 0) {
+			max = thirdNumber;
+		}
+		printMax(max);
+		return max;
+	}
+
 	private void printMax(Integer max) {
+		System.out.println("Largest = " + max);
+	}
+
+	private void printMax(Float max) {
 		System.out.println("Largest = " + max);
 	}
 }
