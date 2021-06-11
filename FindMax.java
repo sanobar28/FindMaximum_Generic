@@ -25,11 +25,7 @@ public class FindMax {
 		return max;
 	}
 
-	/**
-	 * UC-2 to find max method returns maximum value using Float object and
-	 * compareTo method
-	 *
-	 */
+	
 	public Float findMaxValue(Float firstNumber, Float secondNumber, Float thirdNumber) {
 		Float max = firstNumber;
 		if (secondNumber.compareTo(max) > 0) {
@@ -41,6 +37,23 @@ public class FindMax {
 		printMax(max);
 		return max;
 	}
+	
+	/**
+	 * UC-3 to find max method returns maximum value using String object and
+	 * compareTo method
+	 *
+	 */
+	 public String findMaxValue(String firstNumber, String secondNumber, String thirdNumber) {
+	        String max = firstNumber;
+	        if (secondNumber.compareTo(max) > 0) {
+	            max = secondNumber;
+	        }
+	        if (thirdNumber.compareTo(max) > 0) {
+	            max = thirdNumber;
+	        }
+	        printMax(max);
+	        return max;
+	    }
 
 	private void printMax(Integer max) {
 		System.out.println("Largest = " + max);
@@ -49,4 +62,7 @@ public class FindMax {
 	private void printMax(Float max) {
 		System.out.println("Largest = " + max);
 	}
+	private void printMax(String max) {
+        System.out.println("Largest = " + max);
+    }
 }
