@@ -113,6 +113,28 @@ public class LinkedList<T> {
 			nodeAtPreviousIndex.setNext(newNode);
 		}
 	}
+	
+	/**
+	 * UC-9 To find the size of Linked List
+	 * @return
+	 */
+	public int size() {
+		LinkedListNode<T> currNode = first;
+		int count = 0;
+		if (null != currNode) {
+			while ((null != currNode.getNext()) || (null != currNode.getValue())) {
+				currNode = currNode.getNext();
+				count++;
+				if (null == currNode) {
+					break;
+				}
+			}
+		}
+		count = (count > Integer.MAX_VALUE) ? Integer.MAX_VALUE : count;
+		System.out.println("Size of LinkedList " + count);
+		return count;
+	}
+	
 
 	public void print() {
 		printList(first);
@@ -130,8 +152,9 @@ public class LinkedList<T> {
 		list.insert(new LinkedListNode<Integer>(56));
 		
 		list.insertAt(2, new LinkedListNode<Integer>(40));
-		list.searchVal(30);
-		//list.deleteAt(2);
+		list.searchVal(40);
+		list.deleteAt(2);
+		list.size();
 		list.print();
 	}
 
