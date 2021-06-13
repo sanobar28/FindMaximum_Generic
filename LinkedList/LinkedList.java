@@ -69,7 +69,7 @@ public class LinkedList<T> {
 	}
 	
 	/**
-	 * Uc-7 to search value in linked list 
+	 * UC-7 to search value in linked list 
 	 * @param node
 	 * @return
 	 */
@@ -94,6 +94,25 @@ public class LinkedList<T> {
 
 	}
 	
+	/**
+	 * UC-8 To insert value at given index
+	 * @param index
+	 * @param data
+	 */
+	public void insertAt(int index, LinkedListNode<T> data) {
+		LinkedListNode<T> currNode = data;
+		if (index == 0) {
+			currNode= currNode.getNext();
+		} else {
+			LinkedListNode<T> newNode= data;
+			LinkedListNode<T> nodeAtPreviousIndex = first;
+			for (int i = 0; i < index - 1; i++) {
+				nodeAtPreviousIndex = nodeAtPreviousIndex.getNext();
+			}
+			newNode.setNext(nodeAtPreviousIndex.getNext());
+			nodeAtPreviousIndex.setNext(newNode);
+		}
+	}
 
 	public void print() {
 		printList(first);
@@ -110,8 +129,9 @@ public class LinkedList<T> {
 		list.insert(new LinkedListNode<Integer>(30));
 		list.insert(new LinkedListNode<Integer>(56));
 		
+		list.insertAt(2, new LinkedListNode<Integer>(40));
 		list.searchVal(30);
-		list.deleteAt(2);
+		//list.deleteAt(2);
 		list.print();
 	}
 
