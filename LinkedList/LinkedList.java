@@ -34,6 +34,18 @@ public class LinkedList<T> {
 		if (node.getNext() != null)
 			printList(node.getNext());
 	}
+	
+	
+	/**
+	 * UC-5 Remove from the front of the list
+	 * @param node
+	 */
+	public void remove(){
+		if(first.getNext()!=null)
+			first = first.getNext();
+		else first = null;
+	}
+	
 
 	public void print() {
 		printList(first);
@@ -49,7 +61,8 @@ public class LinkedList<T> {
 		list.insert(new LinkedListNode<Integer>(70));
 		list.insert(new LinkedListNode<Integer>(30));
 		list.insert(new LinkedListNode<Integer>(56));
-
+		
+		list.remove();
 		list.print();
 	}
 
