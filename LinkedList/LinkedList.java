@@ -46,6 +46,25 @@ public class LinkedList<T> {
 		else first = null;
 	}
 	
+	/**
+	 * UC-6 to delete node at required index
+	 * @param index
+	 */
+	public void deleteAt(int index) {
+		if (index == 0) {
+			first = first.getNext();
+		} else {
+			LinkedListNode<T> n = first;
+			LinkedListNode<T> n1 = null;
+			for (int i = 0; i < index - 1; i++) {
+				n = n.getNext();
+			}
+			n1 = n.getNext();
+			n.setNext(n1.getNext());
+			System.out.println("Node deleted is: " + n1.getValue());
+			n1 = null;
+		}
+	}
 
 	public void print() {
 		printList(first);
@@ -62,7 +81,7 @@ public class LinkedList<T> {
 		list.insert(new LinkedListNode<Integer>(30));
 		list.insert(new LinkedListNode<Integer>(56));
 		
-		list.remove();
+		list.deleteAt(2);
 		list.print();
 	}
 
