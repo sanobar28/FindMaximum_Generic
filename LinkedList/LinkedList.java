@@ -9,6 +9,8 @@
 
 package datastructure.java;
 
+import java.util.Scanner;
+
 public class LinkedList<T> {
 
 	LinkedListNode<T> head;
@@ -65,6 +67,33 @@ public class LinkedList<T> {
 			n1 = null;
 		}
 	}
+	
+	/**
+	 * Uc-7 to search value in linked list 
+	 * @param node
+	 * @return
+	 */
+	
+	public int searchVal(T node) {
+		LinkedListNode<T> currNode = first;
+		int index = 0;
+		if (null != currNode) {
+			while ((null != currNode.getNext()) || (null != currNode.getValue())) {
+				if (currNode.getValue() == node) {
+					System.out.println("Element " + currNode.getValue() + " found!");
+					break;
+				}
+				currNode = currNode.getNext();
+				if (null == currNode) {
+					return -1;
+				}
+				index++;
+			}
+		}
+		return index;
+
+	}
+	
 
 	public void print() {
 		printList(first);
@@ -81,8 +110,10 @@ public class LinkedList<T> {
 		list.insert(new LinkedListNode<Integer>(30));
 		list.insert(new LinkedListNode<Integer>(56));
 		
+		list.searchVal(30);
 		list.deleteAt(2);
 		list.print();
 	}
 
+	
 }
